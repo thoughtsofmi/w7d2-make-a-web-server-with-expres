@@ -38,19 +38,6 @@ app.get('/', function(req, res) {
   })
 })
 
-app.get('/addresses', (request, response) => {
-
-    if(req.query.format === 'html' && request.query.addresses ==='addresses'){
-        response.render('addresses.html', {
-          queryStuff: request.query,
-          addresses:rows
-        })
-    }
-    else {
-        response.render('home.html')
-    }
-})
-
 app.post('/photos', upload.single('photo'), function(req, res, next) {
   // Example photo upload usage
   res.send('<img src="uploads/' + req.file.originalname + '" />"')

@@ -1,0 +1,23 @@
+<h1>Items data</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ Item.id }}</td>
+            <td>{{ Item.title }}</td>
+            <td>{{ Item.category }}</td>
+            <td>{{ Item.description }}</td>
+            <td>{{ Item.price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

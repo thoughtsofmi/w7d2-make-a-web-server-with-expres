@@ -9,42 +9,64 @@ var db = new sqlite3.Database('./store.sqlite3')
 // Routes
 router.get('/users', function (req, res) {
   db.serialize(function () {
-
-      db.all('SELECT * FROM users', (error, rows) => {
-          res.json(rows)
-
-      })
+    db.all('SELECT * from USERS', (error, rows) => {
+      if (req.query.format === 'html') {
+        res.render('users.html', {
+          users: rows
+        })
+      }
+      else {
+        res.json(rows)
+      }
+    })
   })
 })
 
+
+
 router.get('/addresses', function (req, res) {
   db.serialize(function () {
+    db.all('SELECT * FROM addresses', (error, rows) => {
+      if (req.query.format === 'html') {
+        res.render('addresses.html', {
+          addresses: rows
+        })
+      } else {
+        res.json(rows)
+      }
 
-      db.all('SELECT * FROM addresses', (error, rows) => {
-          res.render(rows)
 
-      })
+    })
   })
 })
 
 router.get('/items', function (req, res) {
   db.serialize(function () {
-
-      db.all('SELECT * FROM items', (error, rows) => {
-          res.json(rows)
-
-      })
+    db.all('SELECT * FROM items', (error, rows) => {
+      if (req.query.format === 'html') {
+        res.render('items.html', {
+          items: rows
+        })
+      } else {
+        res.json(rows)
+      }
+    })
   })
 })
 
 router.get('/orders', function (req, res) {
   db.serialize(function () {
-
-      db.all('SELECT * FROM orders', (error, rows) => {
-          res.json(rows)
-
-      })
+    db.all('SELECT * FROM orders', (error, rows) => {
+      if (req.query.format === 'html') {
+        res.render('orders.html', {
+          orders: rows
+        })
+      } else {
+        res.json(rows)
+      }
+    })
   })
 })
+
 
 module.exports = router

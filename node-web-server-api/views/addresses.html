@@ -1,23 +1,25 @@
 <h1>Address data</h1>
 <table>
-    <tr>
-        <th>Id</th>
-        <th>User Id</th>
-        <th>Street</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Zip</th>
-    </tr>
-    {% for user in users %}
-    <tr>
-        <td>{{ addresses.id }}</td>
-        <td>{{ addresses.user_id }}</td>
-        <td>{{ addresses.street }}</td>
-        <td>{{ addresses.city }}</td>
-        <td>{{ addresses.state }}</td>
-        <td>{{ addresses.zip }}</td>
-    </tr>
-    {% endfor %}
-
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Id</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for address in addresses %}
+        <tr>
+            <td>{{ address.id }}</td>
+            <td>{{ address.user_id }}</td>
+            <td>{{ address.street }}</td>
+            <td>{{ address.city }}</td>
+            <td>{{ address.state }}</td>
+            <td>{{ address.zip }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
-{% for %}

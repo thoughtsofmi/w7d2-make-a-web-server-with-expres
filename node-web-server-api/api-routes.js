@@ -43,13 +43,14 @@ router.get('/addresses', function (req, res) {
 router.get('/items', function (req, res) {
   db.serialize(function () {
     db.all('SELECT * FROM items', (error, rows) => {
-      if (req.query.format === 'html') {
+      if(req.query.format === 'html') {
         res.render('items.html', {
           items: rows
         })
-      } else {
-        res.json(rows)
       }
+      else {
+          res.json(rows)
+        }
     })
   })
 })
